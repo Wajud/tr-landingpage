@@ -1,12 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .clipPathMobile {
+          clip-path: polygon(50% 20%, 100% 0, 100% 100%, 50% 80%, 0 100%, 0 0);
+        }
+
+        .clipPathDesktop {
+          clip-path: polygon(49% 25%, 100% 0, 100% 100%, 0 100%, 0 0);
+        }
+
+        .slide-in {
+          animation-name: slide-in;
+          animation-duration: 1s;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes slide-in {
+          from {
+            transform: translateY(-100%);
+          }
+
+          to {
+            transform: translateY(0%);
+          }
+        }
+
+        .slide-out {
+          animation-name: slide-out;
+          animation-duration: 1s;
+          animation-fill-mode: backwards;
+        }
+
+        @keyframes slide-out {
+          from {
+            transform: translateY(0%);
+          }
+
+          to {
+            transform: translateY(-100%);
+          }
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- Live Header -->
+
+    <header
+      class="bg-[#2A3D19] px-4 md:pr-0 py-0 flex justify-between items-center z-30 relative"
+      id="header"
+    >
+      <img
+        src="images/Thrive logo.png"
+        alt="logo"
+        class="w-40 h-20 object-fit -translate-y-[5px] -translate-x-[2.5rem]"
+      />
+      <nav>
+        <div class="md:hidden cursor-pointer">
+          <img
+            src="images/hamburger.png"
+            alt="hamburger"
+            class="w-8 h-8 block"
+            id="openMenu"
+          />
+          <img
+            src="images/close-menu.png"
+            alt="close-menu"
+            class="w-8 h-8 hidden"
+            id="closeMenu"
+          />
+        </div>
+
+        <ul class="hidden md:flex text-slate-100">
+          <li>
+            <a href="/src/index.html" class="block px-4 py-4 font-semibold"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/about.html"
+              class="block px-4 py-4 font-semibold"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/mainTherapyPage.html"
+              class="block px-4 py-4 font-semibold"
+              >Therapy</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/community/community.html"
+              class="block px-4 py-4 font-semibold"
+              >Community</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/signup.html"
+              class="block px-4 py-4 font-semibold"
+              >Sign Up</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <ul
+      id="mobileMenu"
+      class="bg-gray-50 text-[#2A3D19] py-4 transform -translate-y-[100%] left-0 w-full absolute hidden z-20"
+    >
+      <li>
+        <a
+          href="/src/index.html"
+          class="block py-4 text-center text-lg font-semibold border-b border-[#fff]"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="/src/pages/about.html"
+          class="block py-4 text-center text-lg font-semibold border-b border-[#fff]"
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          href="/src/pages/mainTherapyPage.html"
+          class="block py-4 text-center text-lg font-semibold border-b border-[#fff]"
+          >Therapy</a
+        >
+      </li>
+      <li>
+        <a
+          href="/src/pages/community/community.html"
+          class="block py-4 text-center text-lg font-semibold border-b border-[#fff]"
+          >Community</a
+        >
+      </li>
+      <li>
+        <a
+          href="/src/pages/signup.html"
+          class="block pt-4 text-center text-lg font-semibold"
+          >Sign Up</a
+        >
+      </li>
+    </ul>
+
+    <!-- End of Live Header -->
+
     <div class="relative min-h-[20vh] overflow-hidden">
       <img
         src="images/homebg.png"
@@ -15,14 +166,14 @@
       />
       <div class="absolute top-0 left-0 w-full h-[100%]">
         <button
-          class="bg-green-500 text-white block w-fit px-12 py-2 absolute bottom-24 left-1/2 -translate-x-1/2 rounded-md font-semibold"
+          class="bg-[#295700] text-white block w-fit px-12 py-2 absolute bottom-24 left-1/2 -translate-x-1/2 rounded-md font-semibold"
         >
           Get Started
         </button>
       </div>
     </div>
-    <div class="bg-green-50 px-6 pb-4 border-b border-green-500">
-      <h1 class="text-2xl font-bold text-center text-green-700 py-8">
+    <div class="bg-[#D4DDCC] px-6 pb-4 border-b border-green-500">
+      <h1 class="text-2xl font-bold text-center text-[#152C00] py-8">
         About Us
       </h1>
       <p class="text-green-400">
@@ -34,123 +185,136 @@
         resilience, and positivity.
       </p>
       <button
-        class="block mt-4 w-fit px-12 py-2 rounded md mx-auto bg-green-500 text-white font-semibold"
+        class="block mt-4 mb-4 md:mb-8 w-fit px-12 py-2 rounded md mx-auto bg-[#295700] text-white font-semibold"
       >
         READ MORE
       </button>
     </div>
-    <div class="bg-green-50 px-6 text-green-400">
-      <h1 class="text-center font-bold text-2xl text-green-700 py-6">
+    <div class="bg-[#D4DDCC] px-6 text-green-400">
+      <h1 class="text-center font-bold text-2xl text-[#152C00] pt-12 pb-6">
         WHY US?
       </h1>
-      <p>
+      <p class="text-center">
         Take a step towards better mental well-being with or app designed to
         support you on your journey.
       </p>
     </div>
-    <div class="bg-green-50 pt-16 flex flex-col gap-6">
+    <div class="bg-[#D4DDCC]">
       <div
-        class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
+        class="bg-[#D4DDCC] py-16 flex flex-col gap-6 md:grid grid-cols-3 md:justify-center md:max-w-[90%] md:mx-auto"
       >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img src="images/privacy.svg" alt="privacy" class="scale-75" />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img src="images/privacy.svg" alt="privacy" class="scale-75" />
+          </div>
+          <h2 class="text-green-700 font-semibold">PRIVACY</h2>
+          <p class="text-green-400 px-6 mb-12 text-center">
+            We ensure that our digital footprint and sensitive data data remain
+            protected from unwanted surveillance
+          </p>
         </div>
-        <h2 class="text-green-700 font-semibold">PRIVACY</h2>
-        <p class="text-green-400 px-6 mb-12 text-center">
-          We ensure that our digital footprint and sensitive data data remain
-          protected from unwanted surveillance
-        </p>
-      </div>
 
-      <div
-        class="bg-red-400 py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
-      >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-[#DCAE96] py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img src="images/community.svg" alt="community" class="scale-[85%]" />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img
+              src="images/community.svg"
+              alt="community"
+              class="scale-[85%]"
+            />
+          </div>
+          <h2 class="text-white font-semibold">COMMUNITY</h2>
+          <p class="text-white px-6 mb-6 text-center">
+            Our community support brings people together providing helps,
+            resources and encouragement for collective growth
+          </p>
         </div>
-        <h2 class="text-white font-semibold">COMMUNITY</h2>
-        <p class="text-white px-6 mb-6 text-center">
-          Our community support brings people together providing helps,
-          resources and encouragement for collective growth
-        </p>
-      </div>
 
-      <div
-        class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
-      >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img src="images/therapy.svg" alt="therapy" class="scale-75" />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img src="images/therapy.svg" alt="therapy" class="scale-75" />
+          </div>
+          <h2 class="text-[#152C00] font-semibold">THERAPY</h2>
+          <p class="text-green-400 px-6 mb-12 text-center">
+            We gice professional help for emotional well-being by addressing
+            emotional challenges, gain insights and develop coping strategies
+          </p>
         </div>
-        <h2 class="text-green-700 font-semibold">THERAPY</h2>
-        <p class="text-green-400 px-6 mb-12 text-center">
-          We gice professional help for emotional well-being by addressing
-          emotional challenges, gain insights and develop coping strategies
-        </p>
-      </div>
 
-      <div
-        class="bg-red-400 py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
-      >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-[#DCAE96] py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img src="images/relaxation.svg" alt="relaxation" class="scale-75" />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img
+              src="images/relaxation.svg"
+              alt="relaxation"
+              class="scale-75"
+            />
+          </div>
+          <h2 class="text-white font-semibold">RELAXATION</h2>
+          <p class="text-white px-6 mb-12">
+            We ensure that our digital footprint and sensitive data remain
+            protected from unwanted surveillance
+          </p>
         </div>
-        <h2 class="text-white font-semibold">RELAXATION</h2>
-        <p class="text-white px-6 mb-12">
-          We ensure that our digital footprint and sensitive data remain
-          protected from unwanted surveillance
-        </p>
-      </div>
 
-      <div
-        class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
-      >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-white py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img
-            src="images/user_center.svg"
-            alt="user_center"
-            class="scale-75"
-          />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img
+              src="images/user_center.svg"
+              alt="user_center"
+              class="scale-75"
+            />
+          </div>
+          <h2 class="text-green-700 font-semibold">USER CENTERED</h2>
+          <p class="text-green-400 px-6 mb-6 text-center">
+            Our application prioritizes the user interface as well as the ...
+          </p>
         </div>
-        <h2 class="text-green-700 font-semibold">USER CENTERED</h2>
-        <p class="text-green-400 px-6 mb-6 text-center">
-          Our application prioritizes the user interface as well as the ...
-        </p>
-      </div>
 
-      <div
-        class="bg-red-400 py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
-      >
         <div
-          class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-green-50"
+          class="bg-[#DCAE96] py-4 flex flex-col items-center gap-4 w-4/5 mx-auto rounded-lg shadow-lg"
         >
-          <img src="images/article.svg" alt="user_center" class="scale-75" />
+          <div
+            class="w-[90px] h-[90px] flex items-center justify-center rounded-full bg-[#D4DDCC]"
+          >
+            <img src="images/article.svg" alt="user_center" class="scale-75" />
+          </div>
+          <h2 class="text-white font-semibold">ARTICLE</h2>
+          <p class="text-white px-6 mb-6 text-center">
+            Discover practical tips, expert advice and the latest trend in
+            mental wellness to help you n...
+          </p>
         </div>
-        <h2 class="text-white font-semibold">ARTICLE</h2>
-        <p class="text-white px-6 mb-6 text-center">
-          Discover practical tips, expert advice and the latest trend in mental
-          wellness to help you n...
-        </p>
       </div>
     </div>
+
     <div class="pt-6 pb-12 px-8 border-b border-green-500">
-      <h1 class="text-center font-bold text-2xl text-green-700 py-6">
+      <h1 class="text-center font-bold text-2xl text-[#152C00] py-6">
         OUR THERAPISTS
       </h1>
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8 md:flex-row md:justify-center">
         <div
-          class="flex flex-col items-center gap-2 bg-green-50 border border-green-500 py-12"
+          class="flex flex-col items-center gap-2 bg-[#D4DDCC] border border-green-500 py-12 md:w-[45%]"
         >
-          <img src="images/chidimma.svg" alt="musa" class="w-28 h-28" />
+          <img src="images/musa.png" alt="musa" class="w-28 h-28" />
           <h2 class="text-green-700 font-semibold text-3xl text-center">
             M. MUSA
           </h2>
@@ -158,21 +322,21 @@
         </div>
 
         <div
-          class="flex flex-col items-center gap-2 bg-green-50 border border-green-500 py-12"
+          class="flex flex-col items-center gap-2 bg-[#D4DDCC] border border-green-500 py-12 md:w-[45%]"
         >
-          <img src="images/chidimma.svg" alt="aisha" class="w-28 h-28" />
+          <img src="images/aisha.png" alt="aisha" class="w-28 h-28" />
           <h2 class="text-green-700 font-semibold text-3xl">S. AISHA</h2>
           <p class="text-green-400">Senior At Therapy</p>
         </div>
       </div>
       <button
-        class="block w-fit mx-auto mt-8 px-6 py-2 rounded-md bg-green-700 text-white font-semibold"
+        class="block w-fit mx-auto mt-8 px-6 py-2 rounded-md bg-[#295700] text-white font-semibold"
       >
         SEE MORE
       </button>
     </div>
 
-    <div class="bg-green-50 py-4 border-b border-green-500">
+    <div class="bg-[#D4DDCC] py-4 border-b border-green-500">
       <h1 class="text-center font-bold text-2xl text-green-700 py-6">
         OUR COMMUNITY
       </h1>
@@ -184,16 +348,16 @@
       </p>
       <img src="images/communitymain.svg" alt="communitymain" />
       <button
-        class="block w-fit mx-auto px-6 py-2 rounded-md bg-green-500 text-white font-semibold mt-4"
+        class="block w-fit mx-auto px-6 py-2 rounded-md bg-[#295700] text-white font-semibold mt-4"
       >
         JOIN NOW
       </button>
     </div>
-    <div class="bg-green-50 py-4 border-b border-green-500">
+    <div class="bg-[#D4DDCC] py-4 border-b border-green-500">
       <h1 class="text-center font-bold text-2xl text-green-700 py-6">
         RESOURCES
       </h1>
-      <p class="text-green-500 pt-2 pb-6">
+      <p class="text-green-500 pt-2 pb-6 text-center px-6">
         Our resources can provide you with valuable information, tools and
         references to enhance your mental well-being, which includes:
       </p>
@@ -210,7 +374,7 @@
           class="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.3)] z-30"
         ></div>
         <div class="relative z-40 pb-6">
-          <div class="grid grid-cols-2 justify-center gap-8 px-12 pt-12 pb-8">
+          <div class="grid grid-cols-2 justify-center gap-8 px-12 pt-12 pb-6">
             <button class="block px-6 py-2 bg-white text-green-200 rounded-md">
               Exercise
             </button>
@@ -227,7 +391,7 @@
             </button>
           </div>
 
-          <div class="grid grid-cols-2 justify-center gap-8 px-12 pt-12 pb-8">
+          <div class="grid grid-cols-2 justify-center gap-8 px-12 pt-6 pb-8">
             <button class="block px-6 py-2 bg-white text-green-200 rounded-md">
               Self-Help Guides
             </button>
@@ -245,12 +409,185 @@
           </div>
 
           <button
-            class="block w-fit mx-auto px-6 py-2 bg-green-500 text-white font-semibold mt-4 rounded-md"
+            class="block w-fit mx-auto px-6 py-2 bg-[#295700] text-white font-semibold mt-4 rounded-md"
           >
             View Resources
           </button>
         </div>
       </div>
+
+      <div class="py-6">
+        <h1 class="text-3xl text-center text-green-700 font-bold mb-6">
+          TESTIMONIAL
+        </h1>
+
+        <div class="md:flex gap-8 justify-center">
+          <div
+            class="flex gap-6 bg-[#DCAE96] py-6 shadow-md mb-6 md:mb-0 md:w-[45%]"
+          >
+            <div class="py-6 text-white relative w-4/5">
+              <img
+                src="images/quote1.svg"
+                alt="quote1"
+                class="absolute top-4 left-4 w-4 h-4 object-cover"
+              />
+              <p class="px-10">
+                Thrive has been a game changer for me! The mindfulness exercises
+                and guided meditation sessions have helped me manage my stress
+                and anxiety better. The user-friendly interface makes it easy to
+                navigate, and I appreciate the personalized recommendations
+                based on my progress.
+              </p>
+              <img
+                src="images/quote2.svg"
+                alt="quote2"
+                class="absolute bottom-6 right-72 w-4 h-4 object-cover"
+              />
+            </div>
+
+            <img
+              src="images/chidimma.svg"
+              alt="chidimma"
+              class="w-12 h-12 rounded-full self-end"
+            />
+          </div>
+
+          <div class="flex gap-6 bg-[#DCAE96] py-6 shadow-md md:w-[45%]">
+            <div class="py-6 text-white relative w-4/5">
+              <img
+                src="images/quote1.svg"
+                alt="quote1"
+                class="absolute top-4 left-4 w-4 h-4 object-cover"
+              />
+              <p class="px-10">
+                Thrive has been instrumental in destigmaztizing therapy for me.
+                The on-demand video therapy sessions have been a lifesaver,
+                especailly during times when I couldn't make it to in-person
+                appointments. The licensed therapises are compassionated and
+                understanding.
+              </p>
+              <img
+                src="images/quote2.svg"
+                alt="quote2"
+                class="absolute bottom-6 right-72 w-4 h-4 object-cover"
+              />
+            </div>
+
+            <img
+              src="images/rahmat.svg"
+              alt="rahmat"
+              class="w-12 h-12 rounded-full self-end"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#D4DDCC] py-4 px-8">
+        <h1 class="text-3xl font-bold text-center text-green-700 pt-4">
+          Contact Us
+        </h1>
+        <p class="text-green-500 text-center pt-2">
+          We value your input! We respond without delay.
+        </p>
+
+        <form class="mt-4 flex flex-col gap-4 md:w-[60%] md:mx-auto">
+          <input
+            type="text"
+            placeholder="Name"
+            class="px-4 py-2 border border-slate-200 block w-full"
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            class="px-4 py-2 border border-slate-200 block w-full"
+          />
+          <input
+            type="text"
+            placeholder="Message"
+            class="px-4 py-2 border border-slate-200 block w-full h-40"
+          />
+
+          <button
+            class="bg-[#295700] text-white font-semibold uppercase py-1 rounded-md"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
+
+    <!--  Footer  -->
+
+    <footer class="bg-[#2A3D19] py-8 px-20 md:px-8 relative -mt-32 md:mt-0">
+      <a href="#header"
+        ><img
+          src="images/triangle.png"
+          alt="triangle"
+          class="absolute bottom-8 right-4"
+      /></a>
+
+      <div class="flex flex-col md:flex-row md:justify-evenly md:gap-6 mt-8">
+        <div class="flex gap-4 justify-between md:justify-evenly md:w-[40%]">
+          <div class="text-white flex flex-col gap-2">
+            <h1 class="font-bold text-2xl mb-4">Thrive</h1>
+            <a href="/src/pages/about.html" class="font-semibold">About</a>
+            <a href="" class="font-semibold">Mood Track</a>
+            <a
+              href="/src/pages/Help-Support-Page/support.html"
+              class="font-semibold"
+              >Help & Support</a
+            >
+          </div>
+
+          <div class="text-white flex flex-col gap-2">
+            <h1 class="font-bold text-2xl mb-4">Social</h1>
+            <a href="" class="font-semibold">Facebook</a>
+            <a href="" class="font-semibold">Instagram</a>
+            <a href="" class="font-semibold">Twitter</a>
+          </div>
+        </div>
+
+        <div class="text-white flex flex-col gap-2 mt-12 md:mt-0">
+          <h1 class="font-bold text-2xl mb-4">Services</h1>
+          <a
+            href="/src/pages/resources/resourcesMain.html"
+            class="font-semibold"
+            >Resources</a
+          >
+          <a
+            href="/src/pages/Relaxation/Relaxation8/relaxation8.html"
+            class="font-semibold"
+            >Relaxation</a
+          >
+          <a href="/src/pages/mainTherapyPage.html" class="font-semibold"
+            >Therapy</a
+          >
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row md:gap-0 gap-2 justify-stretch mt-6 self-end"
+        >
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="px-2 py-1 md:py-2 rounded-sm md:rounded-tr-none md:rounded-br-none block w-80 focus:outline-none"
+          />
+          <button
+            class="block bg-white md:bg-green-400 md:rounded-tl-none md:rounded-bl-none px-2 py-1 rounded-sm w-80 md:w-40 text-semibold text-[#2A3D19] font-bold hover:bg-green-300"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+
+      <p class="text-center text-white mt-8 font-semibold">
+        copyright&copy; <span id="year"></span> thrive.techtribe all right
+        reserved
+      </p>
+    </footer>
+
+    <!-- End of Footer -->
+
+    <script src="headerandfooter.js"></script>
   </body>
 </html>
